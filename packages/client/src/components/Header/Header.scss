@@ -1,0 +1,10 @@
+.bar-header {
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    justify-content: center;
+
+    &__title {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,19 @@
+.server-window {
+    &__body {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.status-bar-field {
+    font-size: 0.8rem;
+    &__center {
+        display: flex;
+        justify-content: center;
+    }
+    &__btn {
+        color: #00f;
+        cursor: pointer;
+    }
+}
