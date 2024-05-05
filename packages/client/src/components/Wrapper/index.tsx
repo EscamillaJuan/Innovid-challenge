@@ -10,9 +10,9 @@ export const Wrapper: React.FC<IProps> = (props) => {
     return (
         <>
             <Header />
-            <div className="wrapper-child window">
+            <main className="wrapper-child">
                 {props.children}
-            </div>
+            </main>
         </>
     )
 }

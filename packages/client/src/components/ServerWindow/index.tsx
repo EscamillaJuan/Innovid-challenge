@@ -21,10 +21,10 @@ export const ServerWindow: React.FC<IProps> = (props) => {
         return () => {
           clearInterval(intervalId);
         };
-      });
+      }, [props.id]);
 
     return (
-        <div className="window server-window" style={{width: "320px"}}>
+        <div className="window server-window" style={{width: "400px"}}>
             <div className="title-bar">
                 <div className="title-bar-text">Server #{props.id}</div>
             </div>
