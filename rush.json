@@ -314,6 +314,10 @@
     {
       "packageName": "@escamilla/server",
       "projectFolder": "packages/server"
+    },
+    {
+      "packageName": "@escamilla/client",
+      "projectFolder": "packages/client"
     }
     // {
     //   /**
