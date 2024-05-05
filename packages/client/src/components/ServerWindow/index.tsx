@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ServerWindow.scss"
+import { APIService } from "../../services/APIService";
 
 interface IProps {
     id: number;
-    usage: number;
 }
 export const ServerWindow: React.FC<IProps> = (props) => {
+    const [usage, setUsage] = useState<number>(0);
     const [isOn, setIsOn] = useState<boolean>(false);
+
+    useEffect(() => {
+        const getServerInfo = async () => {
+            const response: {id: number, load: number} = await APIService.getServerUsage(props.id);
+            setUsage(response.load);
+        }
+        getServerInfo();
+        const intervalId = setInterval(() => {
+            getServerInfo();
+        }, 5000);
+        return () => {
+          clearInterval(intervalId);
+        };
+      });
+
     return (
         <div className="window server-window" style={{width: "320px"}}>
             <div className="title-bar">
@@ -31,7 +47,7 @@ export const ServerWindow: React.FC<IProps> = (props) => {
                         "Shut down" : "Turn on"
                     }
                 </p>
-                <p className="status-bar-field status-bar-field__center">CPU Usage: 14%</p>
+                <p className="status-bar-field status-bar-field__center">CPU Usage: {isOn ? usage + "%" : "0%"}</p>
             </div>
         </div>
     )
